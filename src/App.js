@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Market from './Components/Market/Market';
 import Packs from './Components/Packs/Packs';
+import Land from './Components/Land/Land'; // Import the Land component
 import BattleChain from './Components/BattleChain/BattleChain';
 import Scanner from './Components/Scanner/Scanner';
 import Collection from './Components/Collection/Collection';
@@ -58,6 +59,8 @@ class App extends React.Component {
       return <Collection updateBalance={this.updateBalance} loggedIn={this.state.loggedIn} cardDetails={this.state.cardDetails}/>
     } else if (page === 'packs') {
       return <Packs balance={this.state.balance} updateBalance={this.updateBalance} loggedIn={this.state.loggedIn} />
+    } else if (page === 'Land') {
+      return <Land balance={this.state.balance} updateBalance={this.updateBalance} loggedIn={this.state.loggedIn} />
     } else if (page === 'battlechain') {
       return <BattleChain loggedIn={this.state.loggedIn}/>
     } else if (page === 'scanner') {

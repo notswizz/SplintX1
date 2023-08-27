@@ -8,7 +8,7 @@ const filters = {
   foil: ['Regular', 'Gold'],
   type: ['Monster', 'Summoner'],
   rarity: ['Common', 'Rare', 'Epic', 'Legendary'],
-  edition: ['Alpha', 'Beta', 'Promo', 'Reward', 'Untamed', 'Dice'],
+  edition: ['Alpha', 'Beta', 'Promo', 'Reward', 'Untamed', 'Dice', 'Chaos'],
   element: ['Fire', 'Water', 'Earth', 'Life', 'Death', 'Dragon', 'Neutral']
 };
 

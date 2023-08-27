@@ -1,68 +1,67 @@
 import React from 'react';
 
 class Battle extends React.Component {
-	renderCards() {
-		if (this.props.battle.result === 'W') {
-			return (
-				<div className='battle-cards'>
-					<div className='own-cards win-cards'>
-						{this.props.battle.ownCards.map(card => {
-							const backgroundUrl = 'url(' + card.img + ')';
-							return <div className='battle-card' style={{backgroundImage: backgroundUrl}}></div>
-						})}
-					</div>
-					<div className='vs'>VS</div>
-					<div className='opponent-cards loss-cards'>
-						{this.props.battle.opponentCards.map(card => {
-							const backgroundUrl = 'url(' + card.img + ')';
-							return <div className='battle-card' style={{backgroundImage: backgroundUrl}}></div>
-						})}
-					</div>
-				</div>
-			);
-		} else if (this.props.battle.result === 'L') {
-			return (
-				<div className='battle-cards'>
-					<div className='own-cards loss-cards'>
-						{this.props.battle.ownCards.map(card => {
-							const backgroundUrl = 'url(' + card.img + ')';
-							return <div className='battle-card' style={{backgroundImage: backgroundUrl}}></div>
-						})}
-					</div>
-					<div className='vs'>VS</div>
-					<div className='opponent-cards win-cards'>
-						{this.props.battle.opponentCards.map(card => {
-							const backgroundUrl = 'url(' + card.img + ')';
-							return <div className='battle-card' style={{backgroundImage: backgroundUrl}}></div>
-						})}
-					</div>
-				</div>
-			);
-		}
-	}
+  renderCards() {
+    const { battle } = this.props;
 
-	render() {
-		return (
-			<div className='battle'>
-		        <h4>{this.props.battle.result === 'W' ? <span className='win'>W</span> : <span className='loss'>L</span>} vs {this.props.battle.opponent}</h4>
-		          {this.renderCards()}
-		          <div>
-		            <div className='battle-stat'>
-		              <p>Duration: <strong>{this.props.battle.duration} Rounds</strong></p>
-		            </div>
-		            <div className='battle-stat'>
-		              <p>Earnings: <strong>{this.props.battle.earnings} DEC</strong></p>
-		            </div>
-		            <div className='battle-stat'>
-		              <p>Score change: <strong>{this.props.battle.scoreChange > 0 ? '+' : ''}{this.props.battle.scoreChange}</strong></p>
-		            </div>
-		            <div className='battle-stat'>
-		              <p>{this.props.battle.time}</p>
-		            </div>
-		          </div>
-		      </div>
-		);
-	}
+    const ownCards = battle.result === 'W' ? battle.ownCards : battle.opponentCards;
+    const opponentCards = battle.result === 'W' ? battle.opponentCards : battle.ownCards;
+
+    const ownCardClass = battle.result === 'W' ? 'win-cards' : 'loss-cards';
+    const opponentCardClass = battle.result === 'W' ? 'loss-cards' : 'win-cards';
+
+    return (
+      <div className='battle-cards'>
+        <div className={`own-cards ${ownCardClass}`}>
+          {ownCards.map(card => (
+            <div
+              key={card.id}
+              className='battle-card'
+              style={{ backgroundImage: `url(${card.img})` }}
+            ></div>
+          ))}
+        </div>
+        <div className='vs'>VS</div>
+        <div className={`opponent-cards ${opponentCardClass}`}>
+          {opponentCards.map(card => (
+            <div
+              key={card.id}
+              className='battle-card'
+              style={{ backgroundImage: `url(${card.img})` }}
+            ></div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    const { battle } = this.props;
+    return (
+      <div className='battle'>
+        <h4>
+          {battle.result === 'W' ? <span className='win'>W</span> : <span className='loss'>L</span>} vs {battle.opponent}
+        </h4>
+        {this.renderCards()}
+        <div>
+          <div className='battle-stat'>
+            <p>Duration: <strong>{battle.duration} Rounds</strong></p>
+          </div>
+          <div className='battle-stat'>
+            <p>Earnings: <strong>{battle.earnings} DEC</strong></p>
+          </div>
+          <div className='battle-stat'>
+            <p>
+              Score change: <strong>{battle.scoreChange > 0 ? '+' : ''}{battle.scoreChange}</strong>
+            </p>
+          </div>
+          <div className='battle-stat'>
+            <p>{battle.time}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Battle;

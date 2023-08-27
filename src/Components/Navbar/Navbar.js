@@ -6,6 +6,9 @@ import crystal from './crystal.png';
 const pages = {
   market: 'Market',
   collection: 'My Collection',
+  land: 'Land',
+  battlechain: 'Battlechain',
+  scanner: 'Scanner',
   packs: 'Packs'
 };
 

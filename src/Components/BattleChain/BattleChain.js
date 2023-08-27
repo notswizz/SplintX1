@@ -4,7 +4,7 @@ import BattleStats from './BattleStats/BattleStats';
 import BattleLog from './BattleLog/BattleLog';
 import $ from 'jquery';
 
-// $.ajax({
+//$.ajax({
 //     type: 'GET',
 //     url: 'https://game-api.splinterlands.com/players/details?name=notswizz',
 //     jsonCallback: 'testing',
@@ -369,6 +369,7 @@ import $ from 'jquery';
 // })
 
 
+
 class BattleChain extends React.Component {
     constructor(props) {
         super(props);
@@ -451,37 +452,37 @@ class BattleChain extends React.Component {
         }
     }
 
-	render() {
-		return(
-			<div id='battlechain'>
-              <div className='battlechain-header'>
-			     <h2>BattleChain</h2>
-                 <hr />
-              </div>
-			  <div className='battlechain-stats-container'>
-                <div className='battlechain-stats-overview'>
-                  <h3>Overview</h3>
-                  <div className='battlechain-stats-overview-stat'>
-                    <h4>{this.state.wins}-{this.state.losses}</h4>
-                    <p>W/L</p>
-                  </div>
-                  <div className='battlechain-stats-overview-stat'>
-                    <h4>{this.state.streak}</h4>
-                    <p>STREAK</p>
-                  </div>
-                  <div className='battlechain-stats-overview-stat'>
-                    <h4>{this.state.league}</h4>
-                    <p>LEAGUE</p>
-                  </div>
-                  <div className='battlechain-stats-overview-stat'>
-                    <h4>{this.state.rating}</h4>
-                    <p>RATING</p>
-                  </div>
+    render() {
+        return (
+          <div id='battlechain'>
+            <div className='battlechain-header'>
+              <h2>BattleChain</h2>
+              <hr />
+            </div>
+            <div className='battlechain-stats-container'>
+              <div className='battlechain-stats-overview'>
+                <h3>Overview</h3>
+                <div className='battlechain-stats-overview-stat'>
+                  <h4>{this.state.wins}-{this.state.losses}</h4>
+                  <p>W/L</p>
+                </div>
+                <div className='battlechain-stats-overview-stat'>
+                  <h4>{this.state.streak}</h4>
+                  <p>STREAK</p>
+                </div>
+                <div className='battlechain-stats-overview-stat'>
+                  <h4>{this.state.league}</h4>
+                  <p>LEAGUE</p>
+                </div>
+                <div className='battlechain-stats-overview-stat'>
+                  <h4>{this.state.rating}</h4>
+                  <p>RATING</p>
                 </div>
               </div>
-			</div>
-		);
-	}
-}
-
-export default BattleChain;
+            </div>
+          </div>
+        );
+      }
+    }
+    
+    export default BattleChain;

@@ -25,7 +25,7 @@ const packs = [
 		price: 40,
 		keychainCode: 'sm_purchase',
 		code: 'potion',
-		img: 'https://s3.amazonaws.com/steemmonsters/website/ui_elements/shop/potions/potion_legendary.png',
+		img: 'https://d36mxiodymuqjm.cloudfront.net/website/ui_elements/shop/potions/potion_legendary.png',
 		potion_type: 'LEGENDARY'
 	}, {
 		name: 'Alchemy Potion',
